@@ -1,0 +1,81 @@
+---
+title: "conditionals & loops"
+author: "Meagan Brown"
+date: '2022-08-10'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+### Load Libraries
+
+```{r}
+library(tidyverse)
+```
+
+### `if` statements
+
+```{r}
+burrito <- 3
+
+if (burrito > 2) {
+  print("I love burritos") 
+  }
+
+```
+
+```{r}
+my_ships <- c("Millenium Falcon", 
+              "X-wing", 
+              "Tie Fighter", 
+              "Death Star")
+
+str_detect(my_ships, 
+           pattern = "X")
+
+# help me ask questions about what is in a phrase
+
+phrase <- "I love burritos"
+
+if(str_detect(phrase, "love")){
+  print("I am a burrito fan.")
+}
+```
+
+```{r}
+tatooine_characters <- starwars %>% 
+  filter(homeworld == "Tatooine") 
+
+# Use %in% operator to check for multiple positive matches
+
+tatooine_endor_naboo_char <- starwars %>% 
+  filter(homeworld %in% c("Tatooine", "Naboo", "Endor"))
+  
+
+```
+
+### `if-else` statement
+
+```{r}
+pika <- 89.1
+
+if (pika > 60){
+  print("mega pika")
+} else {
+  print("normal pika")
+}
+```
+
+```{r}
+marmot <- 2.8
+
+if(marmot < 0.5){
+  print("this is a small marmot")
+} else if (marmot >= 0.5 & marmot < 3 ) {
+  print("this is a medium marmot")
+} else {
+  print("this is a large marmot")
+}
+```
